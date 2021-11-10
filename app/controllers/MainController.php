@@ -3,6 +3,13 @@
     class MainController{
 
         static public $data = ['title'=>'GameZone | '];
+        
+        public function __construct(){
+            $category = new Category();
+            self::$data['categories'] = $category->findAll();
+        }
+
+
 
         public function view($view){
             extract(self::$data);

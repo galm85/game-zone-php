@@ -30,11 +30,12 @@
                 if(method_exists($this->controller,$URL[0])){
                     $this->method = $URL[0];
                     unset($URL[0]);
-                }else{
-                    require_once "../app/controllers/PagesController.php";
-                    $this->controller = new PagesController();
-                    $this->method = "not_found";
                 }
+                // else{
+                //     require_once "../app/controllers/PagesController.php";
+                //     $this->controller = new PagesController();
+                //     $this->method = "not_found";
+                // }
             }
 
             // params handle
