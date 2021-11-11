@@ -11,7 +11,7 @@
         <?php foreach($products as $product):?>
             <div class="col-md-3 sub-category-card">
                 <a href="<?=ROOT?>/shop/ps5/<?=strtolower($sub->title)?>">
-                <img src="<?=ASSETS?>/images/<?=$sub->image?>" width="100%" alt="category image">
+                <img src="<?=ASSETS?>/images/<?=$product->image?>" width="100%" alt="category image">
                 </a>
                 <h3 class="text-center"><?=$product->title?></h3>
             </div>

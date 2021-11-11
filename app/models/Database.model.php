@@ -71,7 +71,11 @@
             $column = addslashes($column);
             $query = "SELECT * FROM $this->table WHERE $column = :value";
             $data = $this->query($query,['value'=>$value]);
-            return $data[0];
+            if(isset($data[0])){
+                return $data[0];
+            }else{
+                return false;
+            }
         }
 
 
