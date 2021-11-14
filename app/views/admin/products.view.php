@@ -20,6 +20,8 @@
                     <thead>
                         <tr>
                             <th>Image</th>
+                            <th>Platform</th>
+                            <th>Category</th>
                             <th>Title</th>
                             <th>price</th>
                             <th>Available</th>
@@ -34,11 +36,13 @@
                             <?php foreach($products as $product):?>
                                 <tr>
                                     <td><img src="<?=ASSETS?>/images/<?=$product->image?>" alt="product image" width="50px"></td>
+                                    <td><?=$product->main_category?></td>
+                                    <td><?=$product->sub_category?></td>
                                     <td><?=$product->title?></td>
                                     <td>$<?=$product->price?></td>
                                     <td><?=$product->available ? 'yes' : 'no' ?></td>
                                     <td><?=$product->sale ? 'yes' : 'no' ?></td>
-                                    <td><?=$product->sale_price ? $product->sale_price : '--' ?></td>
+                                    <td><?=$product->sale_price ? '$'.$product->sale_price : '--' ?></td>
                                     <td><?=$product->created_by?></td>
                                     <td><?=Helpers::get_date($product->created_at)?></td>
                                 </tr>

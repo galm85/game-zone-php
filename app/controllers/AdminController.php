@@ -32,7 +32,6 @@ class AdminController extends MainController{
     public function add_product(){
 
         if(isset($_POST['main_category'])){
-           print_r($_POST);
             $sub = new Sub_category();
             $subs = $sub->where('main_category',$_POST['main_category']);
             self::$data['subs'] = $subs;
@@ -54,11 +53,11 @@ class AdminController extends MainController{
               
                 $_POST['available'] = isset($_POST['available'])? 1 : 0;
                 $_POST['sale'] = isset($_POST['sale'])? 1 : 0;
-                $_POST['sale_price'] = isset($_POST['sale_price'])? $_POST['sale_price'] : 0;
+                $_POST['sale_price'] = !empty($_POST['sale_price'])? $_POST['sale_price'] : NULL;
                 $_POST['created_by'] = 'Gal Mizrahi';
                 $_POST['image'] = isset($_POST['image']) ? $_POST['image'] : 'noimage.png';
                 unset($_POST['submit_form']);
-                
+                print_r($_POST);
                 $query = "INSERT INTO products (sub_category,main_category,title,image,price,available,sale,sale_price,created_by) VALUES (:sub_category,:main_category,:title,:image,:price,:available,:sale,:sale_price,:created_by)";
                 
                 $product->query($query,$_POST);
@@ -69,7 +68,6 @@ class AdminController extends MainController{
            }
         }
 
-        // "INSERT INTO products (main_category,sub_category,title,price,available,sale_price,submit_form,sale,created_by) VALUES (:main_category,:sub_category,:title,:price,:available,:sale_price,:submit_form,:sale,:created_by)";
 
         $category = new Category();
         $platforms = $category->findAll();
