@@ -14,6 +14,7 @@
         }
 
         
+        
 
         private function connect(){
             try{
@@ -26,19 +27,19 @@
 
         public function query($query,$data=[],$type='fetch'){
             try{
-
+                
                 $db = $this->connect();
                 $statement = $db->prepare($query);
                 $check = $statement->execute($data);
-                
+               
                 if($check && $type == 'fetch'){
                     $results = $statement->fetchAll(PDO::FETCH_OBJ);
                     return $results;
                 }
                 
                 return $check;
-            }catch(PDOException $e){
-                echo $e->getMessage();
+            }catch(Exception $error){
+                echo $error;
             }
         }
 
@@ -95,7 +96,9 @@
             $values = implode(',:',$keys);
             
             $query = "INSERT INTO $this->table ($columns) VALUES (:$values)";
+          
             
+
             $data = $this->query($query,$data,'insert');
             echo $data; 
         }

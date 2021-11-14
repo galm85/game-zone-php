@@ -53,15 +53,26 @@ class AdminController extends MainController{
               
                 $_POST['available'] = isset($_POST['available'])? 1 : 0;
                 $_POST['sale'] = isset($_POST['sale'])? 1 : 0;
-                $_POST['sale_price'] = !empty($_POST['sale_price'])? $_POST['sale_price'] : NULL;
+                $_POST['sale_price'] = empty($_POST['sale_price']) ?  0 : $_POST['sale_price'];
                 $_POST['created_by'] = 'Gal Mizrahi';
                 $_POST['image'] = isset($_POST['image']) ? $_POST['image'] : 'noimage.png';
                 unset($_POST['submit_form']);
-                print_r($_POST);
-                $query = "INSERT INTO products (sub_category,main_category,title,image,price,available,sale,sale_price,created_by) VALUES (:sub_category,:main_category,:title,:image,:price,:available,:sale,:sale_price,:created_by)";
-                
-                $product->query($query,$_POST);
-                $this->redirect('admin/products');
+
+                $query = "INSERT INTO products (main_category,sub_category,title,image,price,available,sale,sale_price,created_by) VALUES (:main_category,:sub_category,:title,:image,:price,:available,:sale,:sale_price,:created_by)";
+                $data = [
+                    'main_category'=>'ben shel zona',
+                    'sub_category'=>'ben shel zona',
+                    'title'=>'no title',
+                    'image'=>'no image',
+                    'price'=>'no price',
+                    'available'=>1,
+                    'sale'=>1,
+                    'sale_price'=>'2222',
+                    'created_by'=>'hitler',
+                ];
+                $product->query($query,$data,'insert');
+               
+                // $this->redirect('admin/products');
 
            }else{
                self::$data['errors'] = $product->errors;
@@ -108,11 +119,12 @@ class AdminController extends MainController{
                     $_POST['image'] = $image;
                 }
             };
-
+            $_POST['main_category'] = str_replace('-',' ',$_POST['main_category']);
             $_POST['image'] = isset($_POST['image']) ? $_POST['image'] : 'no Image';
             $_POST['created_by'] = Auth::get_user_name();
 
            $sub->insert($_POST);
+           $this->redirect('admin/categories');
         }
 
 
