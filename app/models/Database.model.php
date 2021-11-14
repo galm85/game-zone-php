@@ -27,7 +27,7 @@
 
         public function query($query,$data=[],$type='fetch'){
             try{
-                
+               
                 $db = $this->connect();
                 $statement = $db->prepare($query);
                 $check = $statement->execute($data);
@@ -38,8 +38,8 @@
                 }
                 
                 return $check;
-            }catch(Exception $error){
-                echo $error;
+            }catch(PDOException $e){
+                echo $e->getMessage();
             }
         }
 

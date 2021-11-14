@@ -29,6 +29,7 @@
                             <th>Sale Price</th>
                             <th>Created By</th>
                             <th>Date</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,6 +46,10 @@
                                     <td><?=$product->sale_price ? '$'.$product->sale_price : '--' ?></td>
                                     <td><?=$product->created_by?></td>
                                     <td><?=Helpers::get_date($product->created_at)?></td>
+                                    <td>
+                                    <a href=<?=ROOT."/admin/edit_product/$product->id" ?> > Edit</a>
+                                    <a href=<?=ROOT."/admin/delete_product/$product->id" ?> > DELETE</a>
+                                    </td>
                                 </tr>
                             <?php endforeach;?>
                         <?php endif;?>

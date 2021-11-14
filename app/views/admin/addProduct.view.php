@@ -88,6 +88,11 @@
                         <label for="image">Image:</label>
                         <input type="file" name="image" id="image" class="form-control" >
                     </div>
+
+                    <div class="form-group mt-3">
+                            <label for="article">About the Product:</label>
+                            <textarea name="article" id="article" cols="30" rows="10" class="form-control"></textarea>
+                    </div>
                     <div class="text-center mt-5">
                         <button class="btn btn-outline-primary" name='submit_form' >Sign In</button>
                     </div>
