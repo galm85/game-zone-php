@@ -25,17 +25,21 @@
         }
 
         public function query($query,$data=[],$type='fetch'){
-            
-            $db = $this->connect();
-            $statement = $db->prepare($query);
-            $check = $statement->execute($data);
-            
-            if($check && $type == 'fetch'){
-                $results = $statement->fetchAll(PDO::FETCH_OBJ);
-                return $results;
+            try{
+
+                $db = $this->connect();
+                $statement = $db->prepare($query);
+                $check = $statement->execute($data);
+                
+                if($check && $type == 'fetch'){
+                    $results = $statement->fetchAll(PDO::FETCH_OBJ);
+                    return $results;
+                }
+                
+                return $check;
+            }catch(PDOException $e){
+                echo $e->getMessage();
             }
-            
-            return $check;
         }
 
         /**
@@ -85,6 +89,7 @@
          * @return Boolean  if the insert works or not
          */
         public function insert($data){
+            
             $keys = array_keys($data);
             $columns = implode(',',$keys);
             $values = implode(',:',$keys);

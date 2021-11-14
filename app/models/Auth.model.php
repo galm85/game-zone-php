@@ -29,5 +29,14 @@
         }
 
 
+        public static function check_user(){
+
+            if(isset($_SESSION['USER']) && $_SESSION['USER']->rule == 'admin'){
+                return true;
+            }
+            return false;
+
+        }
+
         
     }

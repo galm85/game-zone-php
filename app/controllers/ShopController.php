@@ -4,15 +4,7 @@
 
 class ShopController extends MainController{
 
-    private function getUrl(){
-            
-        $url = isset($_GET['url']) ? $_GET['url'] : 'Pages';
-        $url = trim($url,'/');
-        $url = filter_var($url,FILTER_SANITIZE_URL);
-        $url = explode("/",$url);
-        return $url;
-    
-    }
+  
 
     public function index($category,$sub=null){
         $url = $this->getUrl();
@@ -25,6 +17,14 @@ class ShopController extends MainController{
         
         
     }
+
+
+
+
+
+
+
+
 
 
    private function getSubCategories($main_category){
@@ -60,7 +60,16 @@ class ShopController extends MainController{
         $this->view('shop/products',self::$data);
    }
 
-   
+
+   private function getUrl(){
+            
+    $url = isset($_GET['url']) ? $_GET['url'] : 'Pages';
+    $url = trim($url,'/');
+    $url = filter_var($url,FILTER_SANITIZE_URL);
+    $url = explode("/",$url);
+    return $url;
+
+}
 
     public function not_found(){
         echo '404 page not found';
