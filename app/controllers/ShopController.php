@@ -30,9 +30,10 @@ class ShopController extends MainController{
    private function getSubCategories($main_category){
         
         $main = new Category();
-        $main =  $main->single('category_url',$main_category);
+        $main =  $main->single('category_title',$main_category);
+        
         $sub = new Sub_category();
-        $sub = $sub->where('main_category',$main->id);
+        $sub = $sub->where('main_category',$main->category_title);
         
         self::$data['title'] .= $main->category_title;
         self::$data['subs'] = $sub;
@@ -44,13 +45,13 @@ class ShopController extends MainController{
    private function getProducts($category,$sub=null){
        
         $main = new Category();
-        $main =  $main->single('category_url',$category);
+        $main =  $main->single('category_title',$category);
         
         $sub_cat = new Sub_category();
         $sub_cat = $sub_cat->single('title',$sub);
 
         $product = new Product();
-        $products = $product->query("SELECT * FROM products WHERE main_category = :main_category AND  sub_category = :sub_category",['main_category'=>$main->id ,'sub_category'=>$sub_cat->id]);
+        $products = $product->query("SELECT * FROM products WHERE main_category = :main_category AND  sub_category = :sub_category",['main_category'=>$main->category_title ,'sub_category'=>$sub_cat->title]);
 
         self::$data['title'] .= $main->category_title;
         self::$data['sub'] = $sub_cat;

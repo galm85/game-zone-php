@@ -32,7 +32,7 @@ class AdminController extends MainController{
     public function add_product(){
 
         if(isset($_POST['main_category'])){
-           
+           print_r($_POST);
             $sub = new Sub_category();
             $subs = $sub->where('main_category',$_POST['main_category']);
             self::$data['subs'] = $subs;

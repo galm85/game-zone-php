@@ -21,7 +21,7 @@
                         <select name="main_category" id="main_category" class="form-control" onchange="this.form.submit()">
                             <option value=''>Select Platform</option>
                             <?php foreach($platforms as $platform):?>
-                                <option <?=Helpers::get_old_select('main_category',$platform->id)?> value=<?=$platform->id?> ><?=$platform->category_title?></option>
+                                <option <?=Helpers::get_old_select('main_category',$platform->category_title)?> value=<?=$platform->category_title?> ><?=$platform->category_title?></option>
                             <?php endforeach;?>
                         </select>
                         <?php if(isset($errors['main_category'])):?>
@@ -36,7 +36,7 @@
                             <option value='' >Select category</option>
                             <?php if(isset($subs)):?>
                                 <?php foreach($subs as $sub):?>
-                                    <option <?=Helpers::get_old_select('sub_category',$sub->id)?> value=<?=$sub->id?> >  <?=$sub->title?> </option>
+                                    <option <?=Helpers::get_old_select('sub_category',$sub->title)?> value=<?=$sub->title?> >  <?=$sub->title?> </option>
                                 <?php endforeach;?>  
                             <?php endif;?>
                         </select>
