@@ -30,8 +30,8 @@ class ShopController extends MainController{
    private function getSubCategories($main_category){
         
         $main = new Category();
-        $main =  $main->single('category_title',$main_category);
-        
+        $main =  $main->single('category_url',strtolower($main_category));
+
         $sub = new Sub_category();
         $sub = $sub->where('main_category',$main->category_title);
         

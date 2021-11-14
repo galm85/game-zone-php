@@ -39,4 +39,12 @@
         }
 
         
+
+        public static function get_user_name(){
+            if(isset($_SESSION['USER'])){
+                return $_SESSION['USER']->first_name . ' ' . $_SESSION['USER']->last_name ;
+            }
+            return false;
+        }
+
     }

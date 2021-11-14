@@ -79,6 +79,50 @@ class AdminController extends MainController{
         $this->view('admin/addProduct',self::$data);
     }
 
+
+
+
+
+    public function categories(){
+        if(!Auth::check_user()){
+            $this->redirect('signin');
+        }
+
+        $subs = new Sub_category();
+        self::$data['subs'] = $subs->findAll();
+        self::$data['title'] .= 'AP - Categories';
+        $this->view('admin/categories',self::$data);
+    }
+
+    public function add_category(){
+
+
+
+        if(count($_POST)>0){
+
+            $sub = new Sub_category();
+
+            if(isset($_FILES['image'])){ 
+                $image = $sub->upload_image($_FILES['image']);
+                if($image){
+                    $_POST['image'] = $image;
+                }
+            };
+
+            $_POST['image'] = isset($_POST['image']) ? $_POST['image'] : 'no Image';
+            $_POST['created_by'] = Auth::get_user_name();
+
+           $sub->insert($_POST);
+        }
+
+
+
+        $category = new Category();
+        self::$data['platforms'] = $category->findAll();
+        self::$data['title'] .= 'AP - Add Category';
+        $this->view('admin/addSubCategory',self::$data);
+    }
+
     
        
 
