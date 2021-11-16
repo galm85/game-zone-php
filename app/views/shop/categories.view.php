@@ -12,8 +12,8 @@
             <div class="col-md-3 sub-category-card">
                 <a href="<?=ROOT?>/shop/<?=strtolower($sub->main_category)?>/<?=strtolower($sub->title)?>">
                 <img src="<?=ASSETS?>/images/<?=$sub->image?>" width="100%" alt="category image">
-                </a>
                 <h3 ><?=$sub->title?></h3>
+                </a>
             </div>
         <?php endforeach;?>
     </div>
