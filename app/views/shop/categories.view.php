@@ -2,8 +2,8 @@
     
    <div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <h1 class="text-center"><?=$header?></h1>
+        <div class="col-md-12 page-header">
+            <h1 class="gradient-text" ><?=$header?></h1>
         </div>
     </div>
 
