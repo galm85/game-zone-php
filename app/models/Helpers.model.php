@@ -23,7 +23,7 @@
                 }
             }
 
-            return '';
+            return $value;
         }
         
         public static function get_old_check($key){

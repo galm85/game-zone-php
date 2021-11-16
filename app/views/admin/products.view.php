@@ -4,13 +4,26 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-center">Products</h1>
+                <h1 class="text-center"><?=isset($_POST['filter']) ?strtoupper($_POST['filter']) : '' ?> Products</h1>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-12">
+        <div class="row justify-content-between">
+            <div class="col-md-6">
                 <a class="btn btn-outline-primary" href="<?=ROOT?>/admin/add_product"> Add </a>
+            </div>
+
+            <div class="col-md-3 mt-3 mb-5">
+                <form method="POST" class="d-flex">
+                    <select name="filter" class="form-control">
+                        
+                        <option value="">All Categories</option>
+                        <?php foreach($categories as $category):?>
+                            <option value=<?=$category->category_url?> > <?=$category->category_title?> </option>
+                        <?php endforeach;?>
+                    </select>
+                    <button type="submit" name="submit">Search</button>
+                </form>
             </div>
         </div>
 

@@ -35,9 +35,17 @@ class AdminController extends MainController{
         if(!Auth::check_user()){
             $this->redirect('signin');
         }
-
         $product = new Product();
-        self::$data['products'] = $product->findAll();
+        
+        if(isset($_POST['submit']) && !empty($_POST['filter'])){
+            
+            self::$data['products'] = $product->where('main_category',$_POST['filter']);
+
+        }else{
+
+            self::$data['products'] = $product->findAll();
+        }
+        
 
         self::$data['title'] .= 'AP - Products';
         $this->view('admin/products',self::$data);
