@@ -138,6 +138,30 @@ class AdminController extends MainController{
         $this->view('admin/addSubCategory',self::$data);
     }
 
+
+    public function messages(){
+
+        $message = new Message();
+        self::$data['messages'] = $message->findAll();
+        self::$data['title'] .= 'AP Messages';
+        $this->view('admin/messages',self::$data);
+    }
+
+
+    public function read_message($id){
+        $message = new Message();
+        $message->update($id,['seen'=>1]);
+        self::$data['title'] .= 'AP Mail';
+        self::$data['message'] = $message->single('id',$id);
+        $this->view('admin/singleMessage',self::$data);
+    }
+
+    public function delete_message($id){
+        
+        $message = new Message();
+        $message->delete($id);
+        $this->redirect('admin/messages');
+    }
     
        
 

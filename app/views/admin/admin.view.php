@@ -12,6 +12,7 @@
             <div class="col-md-4">
                     <a href="<?=ROOT?>/admin/products"><h3>Products</h3></a>
                     <a href="<?=ROOT?>/admin/categories"><h3>Categories</h3></a>
+                    <a href="<?=ROOT?>/admin/messages"><h3>Messages</h3></a>
             </div>
         </div>
     </div>
