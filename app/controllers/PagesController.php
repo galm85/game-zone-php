@@ -7,6 +7,9 @@ class PagesController extends MainController{
 
     public function index(){
 
+        $cart = new Cart();
+        self::$data['cart'] = $cart->read_cart();
+
         self::$data['title'] .= 'Home';
         $this->view('pages/home',self::$data);
     }

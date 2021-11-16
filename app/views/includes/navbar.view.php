@@ -1,3 +1,5 @@
+
+
 <style>
 .nav-item a{
   min-width:100px;
@@ -27,6 +29,11 @@
 
           <ul class="navbar-nav ms-auto">
             <?php if(isset($_SESSION['USER'])): ?>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="<?=ROOT?>/about">cart items: <?=Helpers::get_cart_badge()?>  </a>
+            </li>
+
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?= Auth::initial_name()?></a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">

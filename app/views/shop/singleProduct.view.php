@@ -32,7 +32,7 @@
 
                     <p><?=$product->article?></p>
 
-                    <button class="btn btn-primary">Add To Cart</button>
+                    <a class="btn btn-primary" href="<?=ROOT?>/cart/add_to_cart/<?=$product->id?>">  Add To Cart</a>
                     <button class="btn btn-outline-danger"><a href="<?=ROOT?>/shop/<?=$product->main_category?>/<?=$product->sub_category?>">Return</a></button>
                 </div>
         

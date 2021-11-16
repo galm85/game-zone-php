@@ -33,4 +33,10 @@
         }
 
         
+        public static function get_cart_badge(){
+            $cart = new Cart();
+            $cart_items = $cart->read_cart();
+            return count($cart_items) > 0 ? count($cart_items) : '';
+        }
+
     }
