@@ -100,7 +100,7 @@
             
 
             $data = $this->query($query,$data,'insert');
-            echo $data; 
+            
         }
 
 

@@ -19,7 +19,26 @@ class PagesController extends MainController{
 
     public function contact($value=null){
 
-        echo "contact page <br> $value";
+        if(isset($_POST['submit'])){
+            $message = new Message();
+            
+            if($message->validate($_POST)){
+                
+                $_POST['seen'] = 0;
+                unset($_POST['submit']);
+
+                $message->insert($_POST);
+                $this->redirect('/');
+
+            }else{
+
+                self::$data['errors'] = $message->errors;
+            }
+
+        }
+        
+        self::$data['title'] .= "Contact";
+        $this->view('pages/contact',self::$data);
 
     }
 

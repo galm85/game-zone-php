@@ -16,7 +16,7 @@
               <a class="nav-link" href="<?=ROOT?>/about">About  </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?=ROOT?>/about">Contact  </a>
+              <a class="nav-link" href="<?=ROOT?>/contact">Contact  </a>
             </li>
             <?php foreach($categories as $category):?>
               <li class="nav-item">
