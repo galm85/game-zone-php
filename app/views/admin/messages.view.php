@@ -8,6 +8,12 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-12">
+                <a href="<?=ROOT?>/admin" class="btn btn-outline-danger">Return</a>
+            </div>
+        </div>
+
         <?php if(count($messages) > 0):?>
             <table class="table table-stripped table-hover">
                 <thead>

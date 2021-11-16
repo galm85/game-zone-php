@@ -1,5 +1,19 @@
 <?php $this->view('includes/header')?>
-    
+   
+    <style>
+        .admin-nav{
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            
+        }
+        .admin-link{
+            text-decoration: none;
+            color: black;
+            font-family: var(--main-font);
+        }
+
+    </style>
     
     <div class="container">
         <div class="row">
@@ -9,10 +23,10 @@
         </div>
 
         <div class="row">
-            <div class="col-md-4">
-                    <a href="<?=ROOT?>/admin/products"><h3>Products</h3></a>
-                    <a href="<?=ROOT?>/admin/categories"><h3>Categories</h3></a>
-                    <a href="<?=ROOT?>/admin/messages"><h3>Messages</h3></a>
+            <div class="admin-nav">
+                    <a class="admin-link" href="<?=ROOT?>/admin/products"><h3>Products  <?="(" .count($products). ")"?> </h3></a> 
+                    <a class="admin-link" href="<?=ROOT?>/admin/categories"><h3>Categories  <?="(" .count($subs). ")"?></h3></a>
+                    <a class="admin-link" href="<?=ROOT?>/admin/messages"><h3>Messages  <?="(" .$messages. ")"?></h3></a>
             </div>
         </div>
     </div>
