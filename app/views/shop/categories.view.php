@@ -7,13 +7,13 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row justify-content-between">
         <?php foreach($subs as $sub):?>
             <div class="col-md-3 sub-category-card">
                 <a href="<?=ROOT?>/shop/<?=strtolower($sub->main_category)?>/<?=strtolower($sub->title)?>">
                 <img src="<?=ASSETS?>/images/<?=$sub->image?>" width="100%" alt="category image">
                 </a>
-                <h3 class="text-center"><?=$sub->title?></h3>
+                <h3 ><?=$sub->title?></h3>
             </div>
         <?php endforeach;?>
     </div>
