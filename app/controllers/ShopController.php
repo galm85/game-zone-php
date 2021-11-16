@@ -54,7 +54,7 @@ class ShopController extends MainController{
        
         
         $product = new Product();
-        $category = str_replace('-',' ',$category);
+      
         $products = $product->query("SELECT * FROM products WHERE main_category = :main_category AND  sub_category = :sub_category",['main_category'=>$category ,'sub_category'=>$sub]);
 
         self::$data['title'] .= strtoupper($category . ' '. $sub);

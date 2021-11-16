@@ -10,7 +10,7 @@
     <div class="row justify-content-between">
         <?php foreach($subs as $sub):?>
             <div class="col-md-3 sub-category-card">
-                <a href="<?=ROOT?>/shop/<?=strtolower($sub->main_category)?>/<?=strtolower($sub->title)?>">
+                <a href="<?=ROOT?>/shop/<?=strtolower(str_replace(' ','-',$sub->main_category))?>/<?=strtolower($sub->title)?>">
                 <img src="<?=ASSETS?>/images/<?=$sub->image?>" width="100%" alt="category image">
                 <h3 ><?=$sub->title?></h3>
                 </a>
