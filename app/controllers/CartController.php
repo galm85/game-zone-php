@@ -6,7 +6,11 @@ class CartController extends MainController{
 
 
     public function index(){
-      
+        
+       if(!Auth::get_user_name()){
+           $this->redirect('signin');
+       }
+
         $cart = new Cart();
         
         self::$data['items'] = $cart->read_cart();

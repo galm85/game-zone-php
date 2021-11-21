@@ -42,23 +42,32 @@
             $items =[];
 
             $cart = $this->single('user_id',$_SESSION['USER']->id);
-            $cart_items = unserialize($cart->cart_details);
+            if($cart){
 
-            foreach($cart_items as $item){
-                $row = $product->single('id',$item->product_id);
-                $row->qty = $item->qty;
-                array_push($items,$row);
+                $cart_items = unserialize($cart->cart_details);
+                
+                foreach($cart_items as $item){
+                    $row = $product->single('id',$item->product_id);
+                    $row->qty = $item->qty;
+                    array_push($items,$row);
+                }
+                return $items;
+            }else{
+                return null;
             }
-            return $items;
 
         }
 
         public function get_total_cart(){
             $items = $this->read_cart();
             $sum = 0;
-            foreach($items as $item){
-                $sum = $sum + ($item->price * $item->qty);
+            
+            if($items){
+                foreach($items as $item){
+                    $sum = $sum + ($item->price * $item->qty);
+                }
             }
+
             return $sum;
         }
 

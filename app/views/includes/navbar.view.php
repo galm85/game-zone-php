@@ -49,8 +49,10 @@
             <li class="nav-item">
               <a class="nav-link" href="<?=ROOT?>/cart">
                   <div class="cart-badge">
-                      <i class="fas fa-shopping-cart " style="font-size:1.2rem"></i> 
-                     <p class="cart-items"> <?=Helpers::get_cart_badge()?>  </p>
+                      <i class="fas fa-shopping-cart " style="font-size:1.2rem"></i>
+                      <?php if(Helpers::get_cart_badge()):?>
+                        <p class="cart-items"> <?=Helpers::get_cart_badge()?>  </p>
+                      <?php endif;?>
                   </div>
               </a>
             </li>

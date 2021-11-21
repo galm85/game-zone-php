@@ -18,7 +18,7 @@
 
         <div class="row justify-content-between">
             <div class="col-md-8 ">
-                <?php if(count($items) > 1):?>
+                <?php if($items):?>
                     <table class="table">
                         <thead>
                             <tr>
@@ -43,28 +43,25 @@
                                 <?php endforeach;?>
                         </tbody>
                     </table> 
+
+                    <div class="col-md-3">
+                        <div class="checkout">
+                            <h5>Total Items: <?=Helpers::get_cart_badge()?></h5>
+                            <h5>Total Price: $<?=$sum?></h5>
+                            <hr>
+                            <a class="btn btn-warning"  href="<?=ROOT?>/order/checkout">Proceed</a>
+                        </div>
+                    </div>
                     
                 <?php else:?>
-                    <h3>No Item in your cart yet...</h3>
+                    <h3>No Items in your cart yet...</h3>
                 <?php endif;?>
             </div>
 
-            <div class="col-md-3">
-                    <div class="checkout">
-                        <h5>Total Items: <?=Helpers::get_cart_badge()?></h5>
-                        <h5>Total Price: $<?=$sum?></h5>
-                        <hr>
-                        <a class="btn btn-warning"  href="<?=ROOT?>/checkout">Proceed</a>
-                    </div>
-            </div>
+            
         </div>
     </div>
-    <h1>My Cart</h1>
-
-    <?php  if(isset($items)){
-        print_r($items);
-    }
-        ?>
+    
 
 
 <?php $this->view('includes/footer')?>

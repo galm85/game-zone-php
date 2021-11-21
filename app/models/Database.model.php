@@ -96,7 +96,7 @@
             $values = implode(',:',$keys);
             
             $query = "INSERT INTO $this->table ($columns) VALUES (:$values)";
-          
+           
             
 
             $data = $this->query($query,$data,'insert');
