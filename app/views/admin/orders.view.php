@@ -13,10 +13,23 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-12">
+        <div class="row my-5">
+            <div class="col-8">
                 <a href="<?=ROOT?>/admin" class="btn btn-outline-danger">Return</a>
             </div>
+            <div class="col-4">
+                <form method="POST" style="display: flex;">
+                    <select name="filter" id="filter" class="form-control">
+                        <option value=''>All</option>
+                        <option value='in_procces'>In Procces</option>
+                        <option value='ready'>Ready</option>
+                        <option value='sent'>Sent</option>
+                        <option value='anceld'>Canceld</option>
+                    </select>
+                    <button class="btn btn-outline-primary ms-2" type="submit" name="submit">Filter</button>
+                </form>
+            </div>
+
         </div>
 
        <?php if(count($orders) > 0):?>

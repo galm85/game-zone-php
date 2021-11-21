@@ -193,8 +193,15 @@ class AdminController extends MainController{
         }
 
         $order = new Order();
+
+        if(isset($_POST['filter']) && !empty($_POST['filter'])){
+          
+            $orders = $order->where('status',$_POST['filter']);
+        }else{
+            $orders = $order->query("SELECT * FROM orders ORDER BY created_at ASC");
+
+        }
         
-        $orders = $order->query("SELECT * FROM orders ORDER BY created_at ASC");
         self::$data['orders'] = $orders;
         self::$data['title'] .= 'AP Orders';
         $this->view('admin/orders',self::$data);
