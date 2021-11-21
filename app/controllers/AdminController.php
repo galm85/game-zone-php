@@ -200,6 +200,37 @@ class AdminController extends MainController{
         $this->view('admin/orders',self::$data);
 
     }
+
+    public function single_order($id){
+        
+        $orderModel = new Order();
+        $productModel = new Product();
+        $userModel = new User();
+
+        $order = $orderModel->single('id',$id);
+        $cart = unserialize($order->cart);
+        $items = [];
+
+        foreach($cart as $row){
+            $product = $productModel->single('id',$row->product_id);
+            $product->qty = $row->qty;
+            array_push($items,$product);
+        }
+        self::$data['user'] = $userModel->single('id',$order->user_id);
+        self::$data['title'] .= 'Order';
+        self::$data['order'] = $order;
+        self::$data['items'] = $items;
+
+        $this->view('admin/singleOrder',self::$data);
+
+        
+
+
+        
+
+    }
        
+
+    
 
 }

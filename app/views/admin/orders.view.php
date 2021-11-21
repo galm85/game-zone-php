@@ -1,5 +1,10 @@
 <?php $this->view('includes/header')?>
-    
+    <style>
+        .in_procces{
+           font-weight: bold;
+           background-color: rgba(0, 0, 0, 0.1);
+        }
+    </style>
     
     <div class="container">
         <div class="row">
@@ -28,13 +33,13 @@
                 </thead>
                 <tbody>
                     <?php foreach($orders as $order):?>
-                        <tr>
+                        <tr class=<?=$order->status == 'in_procces' ? 'in_procces' : '' ?>>
                             <td><?=$order->id?></td>
                             <td><?=$order->user_id?></td>
                             <td><?=$order->status?></td>
                             <td>$<?=$order->total_sum?></td>
                             <td><?=Helpers::get_date($order->created_at)?></td>
-                            <td><a class="btn btn-primary" href="<?=ROOT?>/admin/singel_order/<?=$order->id?>">Order</a></td>
+                            <td><a class="btn btn-primary" href="<?=ROOT?>/admin/single_order/<?=$order->id?>">Order</a></td>
                         </tr>
                     <?php endforeach;?>
                 </tbody>

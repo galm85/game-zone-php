@@ -61,4 +61,15 @@ class OrderController extends MainController{
      
     }
 
+
+
+    public function change_status(){
+        $now = new DateTime();
+        $now =  $now->format('Y-m-d H:i:s');
+
+        $order = new Order();
+        $order->update($_POST['id'],['status'=>$_POST['status'],'updated_at'=>$now]);
+        $this->redirect('admin/orders');
+    }
+
 }
