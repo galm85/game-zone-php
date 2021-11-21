@@ -27,6 +27,7 @@
                     <a class="admin-link" href="<?=ROOT?>/admin/products"><h3>Products  <?="(" .count($products). ")"?> </h3></a> 
                     <a class="admin-link" href="<?=ROOT?>/admin/categories"><h3>Categories  <?="(" .count($subs). ")"?></h3></a>
                     <a class="admin-link" href="<?=ROOT?>/admin/messages"><h3>Messages  <?="(" .$messages. ")"?></h3></a>
+                    <a class="admin-link" href="<?=ROOT?>/admin/orders"><h3>Orders</h3></a>
             </div>
         </div>
     </div>

@@ -186,6 +186,20 @@ class AdminController extends MainController{
         $this->redirect('admin/messages');
     }
     
+
+    public function orders(){
+        if(!Auth::check_user()){
+            $this->redirect('signin');
+        }
+
+        $order = new Order();
+        
+        $orders = $order->query("SELECT * FROM orders ORDER BY created_at ASC");
+        self::$data['orders'] = $orders;
+        self::$data['title'] .= 'AP Orders';
+        $this->view('admin/orders',self::$data);
+
+    }
        
 
 }
