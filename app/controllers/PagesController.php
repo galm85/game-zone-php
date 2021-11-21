@@ -8,7 +8,9 @@ class PagesController extends MainController{
     public function index(){
 
         $cart = new Cart();
-        self::$data['cart'] = $cart->read_cart();
+        if(isset($_SESSION['USER'])){
+            self::$data['cart'] = $cart->read_cart();
+        }
 
         self::$data['title'] .= 'Home';
         $this->view('pages/home',self::$data);
@@ -111,7 +113,7 @@ class PagesController extends MainController{
         $this->redirect('');
     }
 
-
+    
 
     public function not_found(){
         echo '404 page not found';

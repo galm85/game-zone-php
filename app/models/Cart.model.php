@@ -38,11 +38,28 @@
 
 
         public function read_cart(){
-            
+            $product = new Product();
+            $items =[];
+
             $cart = $this->single('user_id',$_SESSION['USER']->id);
             $cart_items = unserialize($cart->cart_details);
-            return $cart_items;
 
+            foreach($cart_items as $item){
+                $row = $product->single('id',$item->product_id);
+                $row->qty = $item->qty;
+                array_push($items,$row);
+            }
+            return $items;
+
+        }
+
+        public function get_total_cart(){
+            $items = $this->read_cart();
+            $sum = 0;
+            foreach($items as $item){
+                $sum = $sum + ($item->price * $item->qty);
+            }
+            return $sum;
         }
 
         

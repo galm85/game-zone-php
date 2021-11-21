@@ -4,6 +4,22 @@
 .nav-item a{
   min-width:100px;
 }
+
+.cart-badge{
+  position: relative;
+}
+.cart-items{
+  position: absolute;
+  top:-10px;
+  left:13%;
+  background-color: red;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  color: white;
+}
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-dark  my-nav">
@@ -31,7 +47,12 @@
             <?php if(isset($_SESSION['USER'])): ?>
             
             <li class="nav-item">
-              <a class="nav-link" href="<?=ROOT?>/about">cart items: <?=Helpers::get_cart_badge()?>  </a>
+              <a class="nav-link" href="<?=ROOT?>/cart">
+                  <div class="cart-badge">
+                      <i class="fas fa-shopping-cart " style="font-size:1.2rem"></i> 
+                     <p class="cart-items"> <?=Helpers::get_cart_badge()?>  </p>
+                  </div>
+              </a>
             </li>
 
             <li class="nav-item dropdown">

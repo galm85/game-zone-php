@@ -5,6 +5,18 @@
 class CartController extends MainController{
 
 
+    public function index(){
+      
+        $cart = new Cart();
+        
+        self::$data['items'] = $cart->read_cart();
+        self::$data['sum'] = $cart->get_total_cart();
+        self::$data['title'] .= 'Cart';
+
+        $this->view('pages/cart',self::$data);
+    }
+
+
     public function add_to_cart($product_id){
 
         if(!isset($_SESSION['USER'])){
