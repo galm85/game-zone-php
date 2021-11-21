@@ -201,6 +201,11 @@ class AdminController extends MainController{
             $orders = $order->query("SELECT * FROM orders ORDER BY created_at ASC");
 
         }
+
+        if(isset($_POST['single_order']) && !empty($_POST['order_id'])){
+            $orders = $order->where('id',$_POST['order_id']);
+            
+        }
         
         self::$data['orders'] = $orders;
         self::$data['title'] .= 'AP Orders';

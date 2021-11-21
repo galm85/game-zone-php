@@ -4,6 +4,7 @@
         <div class="row">
             <div class="col-md-12 d-flex justify-content-between">
                 <h1> Order #<?=$order->id?> - <?= str_replace('_',' ', $order->status)?></h1>
+                <a href="<?=ROOT?>/admin/orders"><button class="btn btn-danger">Return</button></a>
                 <div>
                    <form action="<?=ROOT?>/order/change_status" method="POST" style="display:flex;justify-content: space-between;align-items: center;">
                         <input type="text" name='id' value="<?=$order->id?>" style="display:none">
