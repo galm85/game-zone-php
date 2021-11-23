@@ -7,11 +7,11 @@ class PagesController extends MainController{
 
     public function index(){
 
-        $cart = new Cart();
-        if(isset($_SESSION['USER'])){
-            self::$data['cart'] = $cart->read_cart();
-        }
-
+       $product = new Product();
+       self::$data['newproducts'] = $product->query("SELECT * FROM products WHERE sub_category=:sub_category ORDER BY created_at DESC LIMIT 6",['sub_category'=>'Games']);
+       self::$data['saleproducts'] = $product->query("SELECT * FROM products WHERE sale=:sale AND sub_category=:sub_category ORDER BY created_at DESC LIMIT 6",['sale'=>1,'sub_category'=>'Games']);
+        
+        
         self::$data['title'] .= 'Home';
         $this->view('pages/home',self::$data);
     }
@@ -27,7 +27,7 @@ class PagesController extends MainController{
         if(isset($_POST['submit'])){
             $message = new Message();
             
-            if($message->validate($_POST)){
+           
                 
                 $_POST['seen'] = 0;
                 unset($_POST['submit']);
@@ -35,15 +35,10 @@ class PagesController extends MainController{
                 $message->insert($_POST);
                 $this->redirect('/');
 
-            }else{
-
-                self::$data['errors'] = $message->errors;
-            }
-
+            
         }
         
-        self::$data['title'] .= "Contact";
-        $this->view('pages/contact',self::$data);
+        
 
     }
 
