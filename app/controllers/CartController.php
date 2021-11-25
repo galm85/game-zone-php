@@ -60,4 +60,24 @@ class CartController extends MainController{
 
     }
 
+    public function delete_item($id){
+       
+        $cartModel = new Cart();
+        $cart = $cartModel->single('user_id',$_SESSION['USER']->id);
+        $items = unserialize($cart->cart_details);
+        $newItems = [];
+
+        foreach($items as $item){
+            if($item->product_id != $id){
+                array_push($newItems,$item);
+            }
+        }
+
+        $items = $newItems;
+        $items = serialize($items);
+        $cartModel->update($cart->id,['cart_details'=>$items]);
+        $this->redirect('/cart');
+
+    }
+
 }

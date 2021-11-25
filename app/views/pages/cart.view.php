@@ -30,6 +30,7 @@
                                 <th>Price</th>
                                 <th>QTY</th>
                                 <th>Total</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,8 +40,16 @@
                                         <th><?=$item->title?></th>
                                         <th><?=$item->main_category?> <?=$item->sub_category?></th>
                                         <th>$<?=$item->price?></th>
-                                        <th><?=$item->qty?></th>
+                                        <th >
+                                            <div class="d-flex">
+                                                <a class="btn btn-outline-success" >+</a>
+                                                <p class="text-center" style="width: 30px;" href=""><?=$item->qty?></p>
+                                                <a class="btn btn-outline-danger">-</a>
+
+                                            </div>
+                                        </th>
                                         <th>$<?=$item->price * $item->qty?></th>
+                                        <th><a class="btn btn-danger" href="<?=ROOT?>/cart/delete_item/<?=$item->id?>">Delete</a></th>
                                     </tr>
                                 <?php endforeach;?>
                         </tbody>
