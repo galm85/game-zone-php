@@ -47,4 +47,11 @@
             return false;
         }
 
+        public static function get_user_id(){
+            if(isset($_SESSION['USER'])){
+                return $_SESSION['USER']->id;
+            }
+            return false;
+        }
+
     }

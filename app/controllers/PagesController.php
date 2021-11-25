@@ -109,6 +109,54 @@ class PagesController extends MainController{
     }
 
     
+    public function profile(){
+        
+        if($id = Auth::get_user_id()){
+           
+            $userModel = new User();
+            $user= $userModel->single('id',$id);
+
+            $orderModel = new Order();
+            $orders = $orderModel->where('user_id',$user->id);
+
+            $productModel = new Product();
+           
+            $history = [];
+
+            foreach($orders as $order){
+                $cart = unserialize($order->cart);
+                $items = [];
+
+                foreach($cart as $row){
+                    $product = $productModel->single('id',$row->product_id);
+                    $product->qty = $row->qty;
+                    array_push($items,$product);
+                }
+                $row = (object)[
+                    'id'=> $order->id,
+                    'cart'=>$items,
+                    'total'=>$order->total_sum,
+                    'status'=>$order->status,
+                    'date'=>$order->created_at
+                ];
+
+                array_push($history,$row);
+
+                
+            }
+
+            self::$data['user'] = $user;
+            self::$data['orders'] = $history;
+            self::$data['title'] .= $user->first_name.' '.$user->last_name;
+
+
+            $this->view('pages/profile',self::$data);
+
+
+        }else{
+            echo 'no user';
+        }
+    }
 
     public function not_found(){
         echo '404 page not found';

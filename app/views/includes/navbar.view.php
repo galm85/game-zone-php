@@ -56,8 +56,14 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?= Auth::initial_name()?></a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="<?=ROOT?>/users/profile">profile</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="<?=ROOT?>/profile">profile</a></li>
+                
+                  <?php if(Helpers::get_cart_badge()):?>
+                      <li><a class="dropdown-item" href="<?=ROOT?>/cart">My Cart : <span class="text-danger"><?=Helpers::get_cart_badge()?> items </span></a></li>
+                  <?php else:?>
+                    <li><a class="dropdown-item" href="<?=ROOT?>/cart">My Cart</a></li>
+                  <?php endif;?>
+
                   <?php if($_SESSION['USER']->rule == 'admin'):?>
                   <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="<?=ROOT?>/admin/products">Admin Panel</a></li>
