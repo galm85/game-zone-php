@@ -1,28 +1,46 @@
 <?php $this->view('includes/header')?>
-    
+
     
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-center"><?=isset($_POST['filter']) ?strtoupper($_POST['filter']) : '' ?> Products</h1>
+                <h1 class="text-center gradient-text"><?=isset($_POST['filter']) ?strtoupper($_POST['filter']) : '' ?> Products</h1>
             </div>
         </div>
 
-        <div class="row justify-content-between">
+        <div class="row m-5">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="<?=ROOT?>/admin/products">Products </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="<?=ROOT?>/admin/categories">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="<?=ROOT?>/admin/messages">Messages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="<?=ROOT?>/admin/orders">Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="<?=ROOT?>/admin/users">Users</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="row justify-content-between mb-5">
             <div class="col-md-6">
                 <a class="btn btn-outline-primary" href="<?=ROOT?>/admin/add_product"> Add </a>
             </div>
-
-            <div class="col-md-3 mt-3 mb-5">
+            <div class="col-md-3 ">
                 <form method="POST" class="d-flex">
-                    <select name="filter" class="form-control">
-                        
+                    <select name="filter" class="form-control">    
                         <option value="">All Categories</option>
                         <?php foreach($categories as $category):?>
                             <option value=<?=$category->category_url?> > <?=$category->category_title?> </option>
                         <?php endforeach;?>
                     </select>
-                    <button type="submit" name="submit">Search</button>
+                    <button class="btn btn-primary ms-2" type="submit" name="submit">Search</button>
                 </form>
             </div>
         </div>

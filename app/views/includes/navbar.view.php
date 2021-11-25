@@ -60,7 +60,7 @@
                   <li><a class="dropdown-item" href="#">Another action</a></li>
                   <?php if($_SESSION['USER']->rule == 'admin'):?>
                   <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="<?=ROOT?>/admin">Admin Panel</a></li>
+                    <li><a class="dropdown-item" href="<?=ROOT?>/admin/products">Admin Panel</a></li>
                   <?php endif;?>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="<?=ROOT?>/logout">Logout</a></li>

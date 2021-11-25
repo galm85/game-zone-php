@@ -1,18 +1,34 @@
 <?php $this->view('includes/header')?>
-    
+
     
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-center">Messages</h1>
+                <h1 class="text-center gradient-text">Messages</h1>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-12">
-                <a href="<?=ROOT?>/admin" class="btn btn-outline-danger">Return</a>
-            </div>
+        <div class="row m-5">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="<?=ROOT?>/admin/products">Products </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="<?=ROOT?>/admin/categories">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active"  href="<?=ROOT?>/admin/messages">Messages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link "  href="<?=ROOT?>/admin/orders">Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="<?=ROOT?>/admin/users">Users</a>
+                </li>
+            </ul>
         </div>
+
+        
 
         <?php if(count($messages) > 0):?>
             <table class="table table-stripped table-hover">

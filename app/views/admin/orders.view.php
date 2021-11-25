@@ -11,15 +11,32 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-center">Orders</h1>
+                <h1 class="text-center gradient-text">Orders</h1>
             </div>
         </div>
 
-        <div class="row my-5">
-            <div class="col-8">
-                <a href="<?=ROOT?>/admin" class="btn btn-outline-danger">Return</a>
-            </div>
-            <div class="col-4">
+        <div class="row m-5">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="<?=ROOT?>/admin/products">Products </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="<?=ROOT?>/admin/categories">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="<?=ROOT?>/admin/messages">Messages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active"  href="<?=ROOT?>/admin/orders">Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="<?=ROOT?>/admin/users">Users</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="row my-5 justify-content-between"> 
+            <div class="col-3">
                 <form method="POST" style="display: flex;">
                     <select name="filter" id="filter" class="form-control">
                         <option value=''>All</option>
@@ -31,18 +48,15 @@
                     <button class="btn btn-outline-primary ms-2" type="submit" name="submit">Filter</button>
                 </form>
             </div>
-
-        </div>
-
-        <div class="row my-3">
-            <div class="col-8">
+            <div class="col-6">
                 <form method="POST" style="display:flex">
                     <input type="text" class="form-control" name="order_id" placeholder="Insert Order ID">
-                    <button class="btn btn-primary ms-2" name="single_order">Search</button>
-                
+                    <button class="btn btn-primary ms-2" name="single_order">Search</button> 
                 </form>
             </div>
         </div>
+
+        
 
 
         <div class="row ">

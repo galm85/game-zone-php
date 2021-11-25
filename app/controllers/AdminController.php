@@ -11,23 +11,7 @@ class AdminController extends MainController{
             $this->redirect('signin');
         }
 
-        $product = new Product();
-        self::$data['products'] = $product->findAll();
-        
-        $category = new Sub_category();
-        self::$data['subs'] = $category->findAll();
-        
-        $message = new Message();
-
-        
-        $messages = $message->where('seen',0);
-        self::$data['messages'] =  count($messages);
-
-
-        
-
-        self::$data['title'] .= 'Admin Panel';
-        $this->view('admin/admin',self::$data);
+        $this->redirect('admin/products');
     }
 
 
