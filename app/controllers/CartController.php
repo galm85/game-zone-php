@@ -80,4 +80,30 @@ class CartController extends MainController{
 
     }
 
+
+    public function qty_update($op,$product_id){
+       
+        
+        $cartModel = new Cart();
+
+        $cart = $cartModel->single('user_id',$_SESSION['USER']->id);
+        $items = unserialize($cart->cart_details);
+        
+        foreach($items as $item){
+            if($item->product_id == $product_id){
+                if($op == 'add'){
+                    $item->qty = $item->qty + 1;
+                }if($op == 'less' && $item->qty >1){
+                    $item->qty = $item->qty - 1;
+                }
+            }
+        }
+
+        $items = serialize($items);
+        $cartModel->update($cart->id,['cart_details'=>$items]);
+        $this->redirect('/cart');
+        
+
+
+    }
 }

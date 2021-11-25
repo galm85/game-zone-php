@@ -42,9 +42,9 @@
                                         <th>$<?=$item->price?></th>
                                         <th >
                                             <div class="d-flex">
-                                                <a class="btn btn-outline-success" >+</a>
+                                                <a class="btn btn-outline-success" href="<?=ROOT?>/cart/qty_update/add/<?=$item->id?>" >+</a>
                                                 <p class="text-center" style="width: 30px;" href=""><?=$item->qty?></p>
-                                                <a class="btn btn-outline-danger">-</a>
+                                                <a class="btn btn-outline-danger"href="<?=ROOT?>/cart/qty_update/less/<?=$item->id?>">-</a>
 
                                             </div>
                                         </th>
