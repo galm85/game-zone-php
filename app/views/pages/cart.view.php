@@ -10,15 +10,17 @@
     </style>
 
     <div class="container">
+        
         <div class="row">
             <div class="col-12">
                 <h1>My Cart</h1>
             </div>
         </div>
 
+        
+        <?php if($items):?>
         <div class="row justify-content-between">
-            <div class="col-md-8 ">
-                <?php if($items):?>
+            <div class="col-md-8 border-end ">
                     <table class="table">
                         <thead>
                             <tr>
@@ -43,23 +45,32 @@
                                 <?php endforeach;?>
                         </tbody>
                     </table> 
+            </div> 
 
-                    <div class="col-md-3">
-                        <div class="checkout">
-                            <h5>Total Items: <?=Helpers::get_cart_badge()?></h5>
-                            <h5>Total Price: $<?=$sum?></h5>
-                            <hr>
-                            <a class="btn btn-warning"  href="<?=ROOT?>/order/checkout">Proceed</a>
-                        </div>
-                    </div>
-                    
-                <?php else:?>
-                    <h3>No Items in your cart yet...</h3>
-                <?php endif;?>
+            <div class="col-md-3">
+                <div class="checkout">
+                    <h5>Total Items: <?=Helpers::get_cart_badge()?></h5>
+                    <h5>Total Price: $<?=$sum?></h5>
+                    <hr>
+                    <a class="btn btn-warning"  href="<?=ROOT?>/order/checkout">Proceed</a>
+                </div>
+                <div class="text-center">
+                    <a class="btn btn-danger mt-5" href="<?=ROOT?>/cart/clear">Clear Cart</a>
+
+                </div>
             </div>
 
-            
         </div>
+
+        <?php else:?>
+            <div class="row">
+                <div class="col-12">
+                    <h3>No Items in your cart yet...</h3>
+                </div>
+            </div>
+        <?php endif;?>
+           
+
     </div>
     
 

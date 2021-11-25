@@ -48,4 +48,16 @@ class CartController extends MainController{
         }
     }
 
+
+    public function clear(){
+        
+        $cart = new Cart();
+        $user_id = $_SESSION['USER']->id;
+        echo $user_id;
+        $cart->query("DELETE from carts WHERE user_id =:user_id",['user_id'=>$user_id]);
+        
+        $this->redirect('cart');
+
+    }
+
 }
