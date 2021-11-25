@@ -1,11 +1,7 @@
 <?php $this->view('includes/header')?>
     
    <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1 class="text-center"></h1>
-        </div>
-    </div>
+    
 
         <div class="single-product-card ">
                     
@@ -33,7 +29,7 @@
                     <p><?=$product->article?></p>
 
                     <a class="btn btn-primary" href="<?=ROOT?>/cart/add_to_cart/<?=$product->id?>">  Add To Cart</a>
-                    <button class="btn btn-outline-danger"><a href="<?=ROOT?>/shop/<?=$product->main_category?>/<?=$product->sub_category?>">Return</a></button>
+                    <a class="btn btn-outline-danger" href="<?=ROOT?>/shop/<?=$product->main_category?>/<?=$product->sub_category?>">Return</a>
                 </div>
         
         </div>
