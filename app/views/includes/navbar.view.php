@@ -75,7 +75,12 @@
           </ul>       
         <?php else: ?>
             <li class="nav-item">
-                <a class="nav-link" href="<?=ROOT?>/signin"> Sign In </a> 
+                <a class="nav-link" href="<?=ROOT?>/register"> Register </a> 
+               
+              </li>
+            <li class="nav-item">
+            <a class="nav-link" href="<?=ROOT?>/signin"> Sign In </a> 
+               
               </li>
         <?php endif; ?>
     </div>

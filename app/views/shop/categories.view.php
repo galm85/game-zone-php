@@ -3,7 +3,7 @@
    <div class="container">
     <div class="row">
         <div class="col-md-12 page-header">
-            <h1 class="gradient-text" ><?=$header?></h1>
+            <h1 class="gradient-text header-1" ><?=$header?></h1>
         </div>
     </div>
 

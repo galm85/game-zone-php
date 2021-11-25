@@ -50,12 +50,7 @@ body{
     color: white;
 }
 
-.gradient-text{
-    font-size: 72px;
-    background: -webkit-linear-gradient(left,rgb(2, 107, 206), rgb(54, 214, 107));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+
 
 
 .page-header{
@@ -102,8 +97,21 @@ body{
     font-weight: 700;
 }
 
+/* ============ GENERAL CLASSES =============== */
+.header-1{
+    font-family: var(--main-font);
+    font-size: 3rem;
+    font-weight: 900;
+}
 
-/* Categories */
+.gradient-text{
+    background: -webkit-linear-gradient(left,rgb(2, 107, 206), rgb(54, 214, 107));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* =================== Categories =======================*/
 .sub-category-card{
    height: 300px;
    padding: 0;

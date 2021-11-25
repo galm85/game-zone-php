@@ -12,7 +12,7 @@
 
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <form method="POST">
+                <form method="POST" enctype="multipart/form-data">
 
                     <div class="form-group mt-3">
                         <label for="first_name">First Name:</label>

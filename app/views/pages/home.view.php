@@ -38,7 +38,7 @@
         <!-- New Products -->
             <div class="row mt-5 justify-content-center">
                 <div class="col-12">
-                    <h1 class="text-center mb-5"><span style="color:blue">New</span> Games</h1>
+                    <h1 class="text-center mb-5 header-1"><span class="gradient-text">New</span> Games</h1>
                 </div>
                 <?php foreach($newproducts as $new):?>
                     <div class="col-md-2">
@@ -54,7 +54,7 @@
         <!-- Sale Products -->
             <div class="row mt-5 justify-content-between">
                 <div class="col-12">
-                    <h1 class="text-center mb-5"><span style="color:blue">Sale</span> Games</h1>
+                    <h1 class="text-center mb-5 header-1"><span class="gradient-text">Sale</span> Games</h1>
                 </div>
                 <?php foreach($saleproducts as $sale):?>
                     <div class="col-md-2">

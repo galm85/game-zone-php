@@ -4,9 +4,9 @@
     <div class="container">
         
 
-        <div class="row">
+        <div class="row mt-5">
             <div class="col-12">
-                <h1 class="text-center gradient-text"> <?=$user->first_name?>  <?=$user->last_name?></h1>
+                <h1 class="text-center gradient-text header-1"> <?=$user->first_name?>  <?=$user->last_name?></h1>
             </div>
         </div>
 

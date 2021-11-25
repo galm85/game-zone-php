@@ -76,18 +76,25 @@ class PagesController extends MainController{
         self::$data['errors'] = [];
 
         if(count($_POST) > 0){
-            
+           
             $user = new User();
+           
+            if(isset($_FILES['image'])){ 
+               
+                $image = $user->upload_image($_FILES['image']);
+                if($image){
+                    $_POST['image'] = $image;
+                }
+            };
+            
             if($user->validate($_POST)){
                 $_POST['rule'] = 'user';
-                $_POST['image'] = 'noUser.png';
+                $_POST['image'] =  isset($_POST['image']) ?  $_POST['image'] : 'noUser.png';
                 $_POST['password'] = $user->hash_password($_POST['password']);
                 unset($_POST['password2']);
                 $user->insert($_POST);
                 $this->redirect('');
-               
-
-
+            
             }else{
                 self::$data['errors'] = $user->errors;
 
