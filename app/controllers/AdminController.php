@@ -243,6 +243,13 @@ class AdminController extends MainController{
     }
        
 
-    
+    public function users(){
+        $user = new User();
+        self::$data['users'] = $user->where('rule','user');
+        self::$data['admins'] = $user->where('rule','admin');
+        self::$data['title'] .= 'AP Users';
+        $this->view('admin/users',self::$data);
+        
+    }
 
 }
