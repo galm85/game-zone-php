@@ -15,10 +15,13 @@
                 <img  src="<?=ASSETS?>/images/ps5ad.jpeg" class="d-block w-100 slide-image"  alt="...">
                 </div>
                 <div class="carousel-item">
-                <img src="<?=ASSETS?>/images/xboxad.jpeg" class="d-block w-100 slide-image" alt="...">
+                <img src="<?=ASSETS?>/images/xboxad.png" class="d-block w-100 slide-image" alt="...">
                 </div>
                 <div class="carousel-item">
-                <img src="<?=ASSETS?>/images/ps4ad.jpeg" class="d-block w-100 slide-image" alt="...">
+                <img src="<?=ASSETS?>/images/ps4ad.png" class="d-block w-100 slide-image" alt="...">
+                </div>
+                <div class="carousel-item">
+                <img src="<?=ASSETS?>/images/gamesad.jpg" class="d-block w-100 slide-image" alt="...">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

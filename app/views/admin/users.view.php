@@ -28,11 +28,7 @@
             </ul>
         </div>
 
-        <div class="row justify-content-between mb-5">
-            <div class="col-md-6">
-                <a class="btn btn-outline-primary" href="<?=ROOT?>/admin/add_product"> Add New Admin </a>
-            </div>
-        </div>
+       
 
         <div class="row mb-5">
             <div class="col-md-12">

@@ -3,6 +3,10 @@
 <style>
 .nav-item a{
   min-width:100px;
+  text-align: center;
+}
+.nav-item{
+  padding-right: 20px;
 }
 
 .cart-badge{
@@ -56,26 +60,27 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?= Auth::initial_name()?></a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="<?=ROOT?>/profile">profile</a></li>
+                  <li><a class="dropdown-item text-start" href="<?=ROOT?>/profile">profile</a></li>
                 
                   <?php if(Helpers::get_cart_badge()):?>
-                      <li><a class="dropdown-item" href="<?=ROOT?>/cart">My Cart : <span class="text-danger"><?=Helpers::get_cart_badge()?> items </span></a></li>
+                  <li><a class="dropdown-item text-start" href="<?=ROOT?>/profile">profile</a></li>
+                      <li><a class="dropdown-item text-start" href="<?=ROOT?>/cart">My Cart : <span class="text-danger"><?=Helpers::get_cart_badge()?> items </span></a></li>
                   <?php else:?>
-                    <li><a class="dropdown-item" href="<?=ROOT?>/cart">My Cart</a></li>
+                    <li><a class="dropdown-item text-start" href="<?=ROOT?>/cart">My Cart</a></li>
                   <?php endif;?>
 
                   <?php if($_SESSION['USER']->rule == 'admin'):?>
                   <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="<?=ROOT?>/admin/products">Admin Panel</a></li>
+                    <li><a class="dropdown-item text-start" href="<?=ROOT?>/admin/products">Admin Panel</a></li>
                   <?php endif;?>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="<?=ROOT?>/logout">Logout</a></li>
+                  <li><a class="dropdown-item text-start" href="<?=ROOT?>/logout">Logout</a></li>
                 </ul>
             </li> 
           </ul>       
         <?php else: ?>
             <li class="nav-item">
-                <a class="nav-link" href="<?=ROOT?>/register"> Register </a> 
+                <a class="nav-link " href="<?=ROOT?>/register"> Register </a> 
                
               </li>
             <li class="nav-item">
