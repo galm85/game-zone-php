@@ -37,6 +37,8 @@ class ShopController extends MainController{
 
    private function getSubCategories($main_category){
         
+        $product = new Product();
+        $products = $product->where('main_category',$main_category);
         
         $main_category = str_replace('-',' ',$main_category);
         $sub = new Sub_category();
@@ -45,7 +47,7 @@ class ShopController extends MainController{
         self::$data['title'] .= strtoupper($main_category);
         self::$data['subs'] = $subs;
         self::$data['header'] = strtoupper($main_category);
-        
+        self::$data['products'] = $products;
         $this->view('shop/categories',self::$data);
    }
 
